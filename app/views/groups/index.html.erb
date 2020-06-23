@@ -1,0 +1,40 @@
+<div class="container-fluid w-100 h-100 h-100vh bg-darkblue">
+    <%= header_two('groups') %>
+
+    <%= no_group(@groups) %>
+
+
+
+      <% @groups.each do |group| %>
+      <% next if group.name == 'None'%>
+        <div class="row">
+    <div class="col-6 mx-auto text-center d-flex flex-column align-items-center">
+      <%= link_to group_path(group), class: 'w-100' do %>
+        <div class="cont border-bottom d-flex flex-column my-3 pb-2">
+          <div class="d-flex align-items-baseline justify-content-center">
+            <%= fa_icon group.icon, class: 'f-s-2 text-white mr-4 d-none d-md-inline' %> <p class='text-white h3 sm-h4'> <%= group.name %> </p> 
+          </div>
+           <div class="d-flex align-items-baseline justify-content-center">
+              <small class='text-white h6 sm-h5'> Created: <%= group.created_at.strftime("%B, %d, %Y") %> </small> 
+          </div> 
+                  <% end %>
+    
+           <div class="d-flex align-items-baseline justify-content-center">
+              <small class='text-white h6 sm-h5'> Project: <%= group.project.name %> </small> 
+          </div>  
+          <div class="d-flex align-items-baseline justify-content-center">
+            <%= link_to 'Delete', group_path(group), class: 'text-white h6 sm-h5', method: :delete, data: { confirm: "Are you sure you want to delete this group and all tasks that belongs to it?" }%>
+          </div>     
+          </div>   
+              </div>
+  </div>
+      <% end %>
+
+
+<div class="row">
+  <div class="col-12 text-center">
+    <%= link_to "Add new", new_group_path, class: 'btn btn-success w-100'%>
+  </div>
+</div>
+</div>
+

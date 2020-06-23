@@ -1,0 +1,89 @@
+@import "font_awesome5_webfont";
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+
+
+body {
+  font-family: 'EB Garamond', serif;
+}
+
+.h-100vh {
+  min-height: 100vh;
+}
+
+.selector-on {
+  color: gold;
+}
+
+$enable-responsive-font-sizes: true;
+
+.vh-95 {
+  min-height: 95vh;
+}
+
+.vh-100 {
+  min-height: 95vh;
+}
+
+.w-360 {
+  width: 360px;
+}
+
+.f-s-1 {
+  font-size: 1rem;
+}
+
+.f-s-2 {
+  font-size: 2rem;
+}
+
+.f-s-3 {
+  font-size: 3rem;
+}
+
+.f-s-4 {
+  font-size: 4rem;
+}
+
+.f-s-5 {
+  font-size: 5rem;
+}
+
+.title-pr {
+  padding-right: 41px;
+}
+
+@media only screen and (max-width: 321px) {
+  .body {
+    height: auto !important;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .sm-h1 {
+    font-size: 2.5rem !important;
+  }
+
+  .sm-h2 {
+    font-size: 1.7rem !important;
+  }
+
+  .sm-h3 {
+    font-size: 1.3rem !important;
+  }
+
+  .sm-h4 {
+    font-size: 1.1rem !important;
+  }
+
+  .sm-h5 {
+    font-size: 0.8rem !important;
+  }
+
+  .sm-h7 {
+    font-size: 0.5rem !important;
+  }
+
+  .sm-w-100 {
+    width: 65% !important;
+  }
+}

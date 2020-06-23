@@ -1,0 +1,34 @@
+<div class="container v-100 vh-100">
+
+<div class="row pt-5">
+  <div class="col-12">
+    <div class="d-flex justify-content-between bg-white shadow-sm p-3 border">
+      <h6 class="h6 text-muted">
+        Here are all developers from your department
+      </h6>
+      <h6 class="h6">
+        <%= @developers.count %>
+      </h6>
+    </div>
+  </div>
+</div>
+<% @developers.each do |developer| %>
+  <div class="row my-3">
+    <div class="col-12">
+        <div class="media bg-white shadow-sm border p-2">
+        <%= user_image_small(developer) %>
+
+          <div class="media-body">
+            <div class="d-flex justify-content-between pt-2"> <p class="m-0 p-0 text-muted"> <%= developer.name %> </p> <p class="m-0 p-0"> <%= link_to 'Manage tasks', tasks_path(:user_id => developer.id)  %> </p>  </div>
+            <div class="d-flex justify-content-between pt-1"> <p class="m-0 p-0 text-muted"> <%= 'Period of service: ' %> </p> <p class="m-0 p-0 text-muted"> <%=  working_period(developer) %> </p>   </div>
+          </div>
+
+        </div>
+    </div>
+  </div>
+  <div class="row">
+   <div class="col-12"> <%= link_to 'Initiate a private chat', "/new_chat/#{developer.id}", method: :post, remote: true, class: 'btn btn-success', id: 'chat-btn'%> </div> 
+    <div id="chat-container"></div>
+  </div>
+<% end %>
+</div>

@@ -1,0 +1,32 @@
+<div class="container">
+
+<h3> Submit as done </h3>
+
+<%= form_with(model: @task, url: done_post_path, method: :post, local: true) do |f| %>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= @task.name %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :amount %>
+    <%= f.text_field :amount, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :group %>
+    <%= f.collection_select(:group_id, Group.all, :id, :name, {}, {class: 'form-control'}) %>
+  </div>
+
+  <%= hidden_user(@user) %>
+
+  <%= hidden_field_tag :task_id, @task.id %>
+
+  <div class="form-group">
+    <%= f.submit 'submit', class: 'btn btn-success w-100' %>
+  </div>
+
+<% end %>
+
+</div>

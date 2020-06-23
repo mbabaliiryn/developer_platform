@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-gradblue">
+  <%= link_to 'Task Manager', root_path, class: 'navbar-brand'%>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+    <%= user_signed_in %>
+    <%= user_not_signed_in %>
+
+      </ul>
+  </div>
+</nav>

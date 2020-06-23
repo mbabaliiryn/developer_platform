@@ -1,0 +1,44 @@
+<div class="container">
+
+<div class="row">
+  <div class="col-12">
+    <div class="d-flex flex-column flex-md-row justify-content-between bg-white shadow-sm p-3 border">
+      <h6 class="h6 text-muted">
+        These are how much time you spent on tasks from this project. <span class='text-capitalize font-weight-bold'><%= @project.name %></span>
+      </h6>
+      <h6 class="h6">
+        <%= current_user.format_duration(total_project_time(@project)) %>
+      </h6>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="d-flex flex-column flex-md-row justify-content-between bg-white shadow-sm p-0 border">
+      <h6 class="h6 text-muted">
+        These are all the groups that are a part of this project.
+      </h6>
+    </div>
+  </div>
+</div>
+
+<% @groups.each do |group| %>
+  <div class="row my-3">
+    <div class="col-12">
+        <div class="media bg-white shadow-sm border p-2">
+          <div class="media-body">
+          <%= link_to group_path(group)  do%>
+            <div class="d-flex flex-column flex-md-row justify-content-between pt-2"> <p class="m-0 p-0 text-muted">Group name: <%= group.name%> </p> <p class="m-0 p-0"> Time spend on tasks from this group: <%=  current_user.format_duration(total_group_time(group.tasks)) %> </p>  </div>
+            <div class="d-flex flex-column flex-md-row justify-content-between pt-1"> <p class="m-0 p-0 text-muted"> Date of creation: <%= group.created_at.to_date %> </p> <p class="m-0 p-0 text-muted"> Author: <%=  group.user.name if group %> </p>   </div>
+          <% end %>
+          </div>
+        </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="row">
+  <div class="col-12">
+    <%= link_to "Add new", new_group_path(:project_id => @project.id ), class: 'btn btn-success w-100'%>
+  </div>
+</div></div>

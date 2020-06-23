@@ -1,0 +1,46 @@
+<div class="container">
+
+<h3> Create a new task </h3>
+
+<%= form_with(model: @task, local: true) do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="d-flex mb-3">
+    <%= link_to 'Set value', '#', { class: 'btn btn-success mr-4', id: 'set-value' }%>
+    <%= link_to 'Set timer', '#', { class: 'btn btn-outline-success', id: 'set-timer' }%>
+  </div>
+   <div class="form-group"> 
+    <%= f.label :minutes %>
+    <%= f.text_field :minutes, class: 'form-control amount-to-hide-min', id: 'amount-to-hide' %> 
+    <%= f.label :hours %>
+    <%= f.text_field :hours, class: 'form-control amount-to-hide-hour', id: 'amount-to-hide' %> 
+
+   </div> 
+
+   <div class="timer d-none form-group">
+    <p>Timer</p>
+    <p class='form-control font-weight-bold' id="timer"></p>
+    <%= link_to "Start", '#', {class: 'btn btn-success', id: 'button-timer'} %>
+    <%= link_to "stop", '#', {class: 'btn btn-danger d-none', id: 'button-timer-of'} %>
+
+   </div>
+
+  <div class="form-group">
+    <%= f.label :group %>
+    <%= f.collection_select(:group_id, group_all, :id, :name, {}, {class: 'form-control'}) %>
+  </div>
+
+  <%= hidden_user(@user) %>
+  <%= hidden_field_tag :amount_real, 0 %>
+
+  <div class="form-group">
+    <%= f.submit 'submit', class: 'btn btn-success w-100' %>
+  </div>
+
+<% end %>
+
+<%= javascript_pack_tag 'timer' %>
+
+</div></div>

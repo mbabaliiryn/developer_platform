@@ -1,0 +1,53 @@
+				<div class="col-md-8 col-xl-6 chat d-none mt-3 mx-auto" id='dis-none'>
+					<div class="card" id='chat-defaul'>
+						<div class="card-header msg_head p-0">
+							<div class="d-flex bd-highlight">
+								<div class="user_info">
+									<span>Live Chat</span>
+								</div>
+							</div>
+            </div>
+            <div class="append scroll h-75" id="chat-default">
+
+              </div>
+              <div class="card-footer">
+							<div class="input-group">
+
+                            <%= form_with(scope: :notice, url: './notice_create', method: :post, id: 'chat-form-fluid', class: 'w-100') do |f| %>
+
+                 <%= f.text_field :body, class: 'form-control w-100 type_msg' %>
+
+              <%# <%= hidden_field_tag :chat_id, Chat.last.id %>
+              <%# <%= hidden_field_tag :recipient, user.id %>
+
+
+              <%= f.hidden_field :recipient_id, :value => 1 %> 
+
+              <%= f.submit :send, class: 'btn btn-primary', id: 'button'%>
+
+          <% end %>
+
+						</div>
+              </div>
+              </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+
+
+
+             
+

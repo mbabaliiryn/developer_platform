@@ -1,0 +1,31 @@
+<div class="container">
+
+<div class="row">
+  <div class="col-12">
+    <div class="d-flex justify-content-between bg-white shadow-sm p-3 border">
+      <h6 class="h6 text-muted">
+        Total time estimated you will need to complete those tasks
+      </h6>
+      <h6 class="h6">
+        <%= @user.format_duration(total_time_tasks(@user)) %>
+      </h6>
+    </div>
+  </div>
+</div>
+<% @tasks.each do |task| %>
+  <div class="row my-3">
+    <div class="col-12">
+        <div class="media bg-white shadow-sm border p-2">
+        <%= group_icon(task) %>
+
+          <div class="media-body">
+            <div class="d-flex justify-content-between pt-2"> <p class="m-0 p-0 text-muted"> <%= task.name%> </p> <p class="m-0 p-0"> <%=  current_user.format_duration(task.amount) %> </p>  </div>
+            <div class="d-flex justify-content-between pt-1"> <p class="m-0 p-0 text-muted"> <%= task.created_at.to_date %> </p> <p class="m-0 p-0 text-muted"> <%=  task.group.name if task.group %> </p>   </div>
+            <%= link_to "Mark as done", mark_task_done_path(:task_id => task.id), class: 'btn btn-success'%>
+          </div>
+        </div>
+    </div>
+  </div>
+<% end %>
+
+</div>
