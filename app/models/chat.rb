@@ -1,3 +1,3 @@
 class Chat < ApplicationRecord
-    has_many :notices
+  has_many :notices
 end

@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
+  validates :name, presence: true
   belongs_to :profile, polymorphic: true
   has_many :tasks
   has_many :groups
@@ -26,20 +26,17 @@ class User < ApplicationRecord
       ''
     else
       duration = {
-        year:( total / (60 * 60 * 24 * 365)).to_i,
+        year: (total / (60 * 60 * 24 * 365)).to_i,
         day: (total / (60 * 60 * 24) % 365).to_i,
         hour: (total / (60 * 60) % 24).to_i,
         minute: (total / 60 % 60).to_i,
-        second:( total % 60).to_i
+        second: (total % 60).to_i
       }
 
       output = []
 
       duration.each do |key, value|
-        if value.positive?
-          output << "#{value} #{key}"
-          output.last << 's' if value != 1
-        end
+        output << "#{value} #{key}" if value.positive?
       end
 
       output.join(', ').gsub(/\,\s(?=\d+\s\w+$)/, ' and ')

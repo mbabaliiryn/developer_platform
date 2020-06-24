@@ -1,8 +1,8 @@
 <div class="container h-100 vh-100">
 
 <div class="row pt-5">
-  <div class="col-12">
-    <div class="d-flex flex-column flex-md-row justify-content-between bg-white shadow-sm p-3 border">
+  <div class="col-12 ">
+    <div class="d-flex flex-column flex-md-row justify-content-between bg-white shadow-sm p-3 border w-75 m-auto">
       <h6 class="h6 text-muted">
         Total Time spent on all your tasks
       </h6>
@@ -13,17 +13,16 @@
     </div>
   </div>
 </div>
-<% @tasks.each do |task| %>
+<% @all_tasks.each do |task| %>
   <div class="row my-3">
     <div class="col-12">
-        <div class="media bg-white shadow-sm border p-2">
+        <div class="media bg-white shadow-sm border p-2 w-75 m-auto ">
         <%= group_icon(task) %>
 
           <div class="media-body">
             <div class="d-flex flex-column flex-lg-row justify-content-between pt-2"> <p class="m-0 p-0 text-muted"> <span class='font-weight-bold'>Name:</span>  <%= task.name%> </p> <p class="m-0 p-0"> <span class='font-weight-bold'>Duration:</span>  <%=  current_user.format_duration(task.amount) %></p>  </div>
             <div class="d-flex flex-column flex-lg-row  justify-content-between pt-1"> <p class="m-0 p-0 text-muted"><span class='font-weight-bold'>Date of execution:</span> <%= task.created_at.strftime("%B, %d, %Y") %> </p> <p class="m-0 p-0 text-muted"><span class='font-weight-bold'> Group: </span><%=  task.group.name if task.group %> </p>   </div>
             <div class="d-flex flex-column flex-lg-row justify-content-between pt-2">
-            
             <%= link_to "Delete", task_path(task), method: :delete, class: 'm-0 p-0 ', data: {confirm: 'Are you sure you want to delete this task?'} %>
             
             
@@ -35,8 +34,8 @@
   </div>
 <% end %>
 
-<div class="row">
-  <div class="col-12">
+<div class="row w-75 m-auto">
+  <div class="col-12 ">
     <%= link_to "Add new", new_task_path(:user_id => @user.id), class: 'btn btn-success w-100'%>
   </div>
 </div>

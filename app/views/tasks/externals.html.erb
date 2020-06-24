@@ -2,7 +2,7 @@
 
 <div class="row pt-5">
   <div class="col-12">
-    <div class="d-flex justify-content-between bg-white shadow-sm p-3 border">
+    <div class="d-flex justify-content-between bg-white shadow-sm p-3 border m-auto w-75">
       <h6 class="h6 text-muted">
         Total Time spent on your tasks that did not belong to any group
       </h6>
@@ -12,6 +12,7 @@
     </div>
   </div>
 </div>
+
 <% @external_tasks.each do |task| %>
   <div class="row my-3">
     <div class="col-12">
@@ -20,12 +21,14 @@
           <div class="media-body">
             <div class="d-flex justify-content-between pt-2"> <p class="m-0 p-0 text-muted"> <span class='font-weight-bold'>Name:</span>  <%= task.name%> </p> <p class="m-0 p-0"> <span class='font-weight-bold'>Duration:</span>  <%=  current_user.format_duration(task.amount) %> </p>  </div>
             <div class="d-flex justify-content-between pt-1"> <p class="m-0 p-0 text-muted"><span class='font-weight-bold'>Date of execution:</span> <%= task.created_at.strftime("%B, %d, %Y") %> </p> <p class="m-0 p-0 text-muted"><span class='font-weight-bold'> Group: </span><%=  task.group.name if task.group %> </p>   </div>
+            
+            
           </div>
         </div>
     </div>
   </div>
-<% end %>
-<div class="row">
+<% end %><br/>
+<div class="row  m-auto w-75">
   <div class="col-12">
     <%= link_to "Add new", new_task_path, class: 'btn btn-success w-100'%>
   </div>

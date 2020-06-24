@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateTasks < ActiveRecord::Migration[6.0]
   def change
     create_table :tasks do |t|
@@ -5,7 +7,7 @@ class CreateTasks < ActiveRecord::Migration[6.0]
       t.bigint :user_id
       t.decimal :amount
       t.boolean :status
-      
+
       t.integer :group_id
 
       t.timestamps

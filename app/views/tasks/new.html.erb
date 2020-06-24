@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container m-auto w-25">
 
 <h3> Create a new task </h3>
 
@@ -11,7 +11,7 @@
     <%= link_to 'Set value', '#', { class: 'btn btn-success mr-4', id: 'set-value' }%>
     <%= link_to 'Set timer', '#', { class: 'btn btn-outline-success', id: 'set-timer' }%>
   </div>
-   <div class="form-group"> 
+   <div class="form-group "> 
     <%= f.label :minutes %>
     <%= f.text_field :minutes, class: 'form-control amount-to-hide-min', id: 'amount-to-hide' %> 
     <%= f.label :hours %>
