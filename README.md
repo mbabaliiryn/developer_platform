@@ -27,7 +27,7 @@ Its enables registered users to create tasks, groups and Projects
 - When you create your user profile, you can be either a manager or an developer (the option is in the signup page). 
 
 
-![screenshot](Screenshot from 2020-06-24 19-03-24.png)
+![screenshot](https://user-images.githubusercontent.com/44978186/85691019-cb69f280-b6dc-11ea-80e0-c65ed6338a43.png)
 
 ## Live demo
 
