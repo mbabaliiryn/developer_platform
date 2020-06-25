@@ -31,7 +31,7 @@ Its enables registered users to create tasks, groups and Projects
 
 ## Live demo
 
-[Check it out](https://aqueous-ocean-20191.herokuapp.com/users/1)
+[Check it out](https://developerplatform.herokuapp.com/users/sign_up)
 
 # Get Started
 
