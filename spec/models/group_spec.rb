@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Group, type: :model do
+  context 'associations' do
+    it { should belong_to(:user) }
+    it { should have_many(:tasks) }
+    it { should belong_to(:project) }
+  end
   context 'group model validation' do
     it 'must have a name' do
       group = Group.new(project_id: 'project1').save

@@ -5,14 +5,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :name, presence: true
   belongs_to :profile, polymorphic: true
-  has_many :tasks
-  has_many :groups
-  has_many :projects
+  has_many :tasks, dependent: :destroy
+  has_many :groups, dependent: :destroy
+  has_many :projects, dependent: :destroy
   has_many :alert_sent, class_name: 'Notice', foreign_key: 'sender_id'
   has_many :alert_received, class_name: 'Notice', foreign_key: 'recipient_id'
   accepts_nested_attributes_for :profile
-  accepts_nested_attributes_for :profile
-  has_one_attached :image
+  has_one_attached :image, dependent: :destroy
   def see_my_tasks(tasks)
     tasks.select { |t| t.user_id == id }
   end

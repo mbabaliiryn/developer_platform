@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  context 'associations' do
+    it { should have_many(:tasks) }
+    it { should have_many(:projects) }
+    it { should have_many(:groups) }
+  end
   context 'user input fields' do
     it 'must have a name' do
       user = User.new(email: 'examole@gmail.com').save

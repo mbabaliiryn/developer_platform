@@ -27,12 +27,11 @@ Its enables registered users to create tasks, groups and Projects
 - When you create your user profile, you can be either a manager or an developer (the option is in the signup page). 
 
 
-
-![screenshot]()
+![screenshot](Screenshot from 2020-06-24 19-03-24.png)
 
 ## Live demo
 
-[Check it out]()
+[Check it out](https://aqueous-ocean-20191.herokuapp.com/users/1)
 
 # Get Started
 
@@ -45,12 +44,12 @@ Its enables registered users to create tasks, groups and Projects
 
 ### Future Updates
 
-- To allow more layers of users.
 - To give an option of the developer class of the user to initate a chat.
-- Restrict the groups from user to user
 - To enable managers to manage their developers tasks
 - To enable managers add tasks for developers
 - To enable managers initiate a live chat with their developers.
+
+## Author
 
 👤 Mbabali Iryn
 
