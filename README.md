@@ -35,7 +35,7 @@ Its enables registered users to create tasks, groups and Projects
 
 ## Live demo
 
-[Check it out](https://developerplatform.herokuapp.com/users/sign_up)
+[Check it out](https://engineerplatform.herokuapp.com/users/sign_in)
 
 # Get Started
 
