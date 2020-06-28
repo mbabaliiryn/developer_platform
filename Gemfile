@@ -64,5 +64,4 @@ gem 'devise'
 gem 'devise-bootstrap-views', '~> 1.0'
 gem 'font-awesome-rails'
 gem 'font_awesome5_rails'
-
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
