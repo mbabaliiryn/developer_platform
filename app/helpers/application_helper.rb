@@ -69,7 +69,7 @@ module ApplicationHelper
   end
 
   def working_period(user)
-    hiring_date = (Time.now - user.created_at).to_s.to_i
+    hiring_date = (Time.zone.now - user.created_at).to_s.to_i
     user.format_duration(hiring_date)
   end
 
