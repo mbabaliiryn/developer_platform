@@ -1,7 +1,6 @@
 # Developer Platform
 Its enables registered users to create tasks, groups and Projects
 
-
 # Build with
 
 - Ruby
