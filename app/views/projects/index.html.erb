@@ -14,14 +14,13 @@
   <div class="row">
     <div class="col-6 mx-auto text-center d-flex flex-column align-items-center">
 
-      <% @projects.each do |project| %>
-      <% next if project.name == 'None'%>
+      <%  no_name(@projects).each do |project| %>
       <%= link_to project_path(project) do %>
-          <div class="d-flex justify-content-center flex-column border-bottom">
+          <div class="d-flex justify-content-center flex-column border-bottom w-75">
           <p class='text-white h5 '> <%= project.name %> </p> 
             <%= link_to 'delete', project_path(project), class: 'text-white h6 sm-h5', method: :delete, data: { confirm: "Are you sure you want to delete this group and all tasks that belongs to it?" }%>
 
-          </div>
+          </div><br/>
 
 
         <% end %>

@@ -4,13 +4,14 @@ class ProjectsController < ApplicationController
   end
 
   def index
-    @projects = Project.alphabetical
+    @projects = Project.order('name ASC')
   end
 
   def create
     @user = params[:user_id] ? User.find(params[:user_id]) : current_user
     @project = Project.new(project_params)
     @project.user = @user
+    @project.name = @project.name.capitalize
     if @project.save
       flash[:notice] = 'You project was created successfully'
       redirect_to project_path(@project)

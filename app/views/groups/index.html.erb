@@ -1,12 +1,11 @@
 <div class="container-fluid w-100 h-100 h-100vh bg-darkblue">
     <%= header_two('groups') %>
 
-    <%= no_group(@groups) %>
+ 
 
 
 
-      <% @groups.each do |group| %>
-      <% next if group.name == 'None'%>
+      <% none_group(@groups).each do |group| %>
         <div class="row">
     <div class="col-6 mx-auto text-center d-flex flex-column align-items-center">
       <%= link_to group_path(group), class: 'w-100' do %>

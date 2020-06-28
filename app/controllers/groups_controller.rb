@@ -5,11 +5,7 @@ class GroupsController < ApplicationController
   end
 
   def index
-    @groups = if Group.alphabetical.size == 1
-                Group.alphabetical
-              else
-                Group.alphabetical.includes([:project])
-              end
+    @groups = Group.includes([:project]).order('name ASC')
   end
 
   def show
@@ -27,6 +23,7 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     @group.user = current_user
+    @group.name = @group.name.capitalize
     if @group.save
       redirect_to groups_path
       flash.now[:notice] = 'Your group was created successfully'

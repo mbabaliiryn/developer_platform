@@ -10,13 +10,8 @@ class TasksController < ApplicationController
     user_id = params[:user_id]
     @task.status = status if status && user_id
     @task.user_id = user_id
-    minutes = params[:task][:minutes].to_i
-    hours = params[:task][:hours].to_i
-    @task.amount = if params[:amount_real] != '0'
-                     params[:amount_real]
-                   else
-                     amount_counter(minutes, hours)
-                   end
+    @task.amount = post
+
     if @task.save
       redirect_to group_path(@task.group)
       flash.now[:notice] = 'Your task was created with success.'
@@ -42,25 +37,6 @@ class TasksController < ApplicationController
   def externals
     @all_tasks = Task.most_recent.includes([:group])
     @external_tasks = current_user.external_tasks(@all_tasks)
-  end
-
-  def future
-    @user = params[:user_id] ? User.find(params[:user_id]) : current_user
-    @all_tasks = Task.most_recent
-    @future_tasks = future_tasks(@all_tasks)
-    @tasks = @user.see_my_tasks(@future_tasks)
-  end
-
-  def done
-    @user = current_user
-    @task = Task.find(params[:task_id])
-  end
-
-  def done_post
-    @task = Task.find(params[:task_id])
-    @task.update(task_params)
-    @task.status = true
-    redirect_to tasks_path if @task.save
   end
 
   def destroy
@@ -92,11 +68,17 @@ class TasksController < ApplicationController
     tasks.select { |task| task.status == true }
   end
 
-  def future_tasks(tasks)
-    tasks.select { |task| task.status == false }
-  end
-
   def amount_counter(minutes, hours)
     hours * (60 * 60) + minutes * 60
+  end
+
+  def post
+    minutes = params[:task][:minutes].to_i
+    hours = params[:task][:hours].to_i
+    if params[:amount_real] != '0'
+      params[:amount_real]
+    else
+      amount_counter(minutes, hours)
+    end
   end
 end

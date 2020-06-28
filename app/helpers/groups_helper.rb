@@ -26,4 +26,8 @@ module GroupsHelper
     Group.create(name: 'None', icon: '', user: user) unless Group.find_by(name: 'None')
     Group.all
   end
+
+  def none_group(group)
+    group.reject { |p| p.name == 'None' }
+  end
 end

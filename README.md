@@ -16,7 +16,12 @@ Its enables registered users to create tasks, groups and Projects
 - Capybara
 - Rubocop
 
-
+# How to run the tests from the terminal
+- Run `rails generate rspec:install`.
+- Run `bundle install`.
+- Run `rspec` to see whether all tests have passed and fix the rest of the error manually  as directed by rspec from the terminal
+- Run `rubocop .` to checkout code errors
+- Run `rubocop . -a` to auto fix code some code error and fix the rest of the error manually  as directed by ruboco from the terminal
 ### Prerequisites
 
 - Ruby on Rails
@@ -36,7 +41,6 @@ Its enables registered users to create tasks, groups and Projects
 # Get Started
 
 - You first need to clone the repository
-- create sendgrid account and add your `API_KEY` in `.env` file.
 - install the dependencies (gems) by running `bundle install --without production` in your terminal
 - Run `rails db:migrate`
 - Run `rails s` to start your rails server. You can now view the app by navigating to `http://localhost:3000` in your browser.

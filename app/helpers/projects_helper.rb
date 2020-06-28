@@ -10,4 +10,8 @@ module ProjectsHelper
   def no_project(list)
     render 'projects/noproject' if list.empty? || list.size == 1
   end
+
+  def no_name(project)
+    project.select(&:name)
+  end
 end
