@@ -29,9 +29,6 @@ class TasksController < ApplicationController
       flash[:alert] = "You need to be a Manager to see other user's tasks"
     end
     @all_tasks = Task.most_recent.where(user_id: current_user.id)
-    @past_tasks = past_tasks(@all_tasks)
-    @tasks = @user.see_my_tasks(@past_tasks)
-    @projects = Project.all
   end
 
   def externals
@@ -62,10 +59,6 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit(:name, :user_id, :group_id, :status)
-  end
-
-  def past_tasks(tasks)
-    tasks.select { |task| task.status == true }
   end
 
   def amount_counter(minutes, hours)
