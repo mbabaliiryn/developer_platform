@@ -1,0 +1,32 @@
+<div class="container m-auto w-25">
+
+<%= form_with model: @group, local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :project_Name %>
+
+    <%= f.collection_select(:project_id, project_all, :id, :name, {}, {class: 'form-control'}) %>
+  </div>
+
+  <%= f.label :icon %>
+
+  <div class="icon-container">
+    <% @font_list.each do |font| %>
+        <div class="form-check">
+          <%= f.radio_button :icon, font %>
+          <%# <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked> %>
+          <label class="form-check-label" for="exampleRadios1">
+            <%= chose_group_icon(font) %>
+          </label>
+        </div>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit 'submit', class: 'btn btn-success w-100' %>
+  </div>
+<% end %></div>

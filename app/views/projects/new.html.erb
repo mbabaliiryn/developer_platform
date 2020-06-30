@@ -1,0 +1,12 @@
+<div class="container">
+
+<%= form_with model: @project, local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit 'submit', class: 'btn btn-success w-100' %>
+  </div>
+<% end %></div>

@@ -1,0 +1,23 @@
+<nav class="navbar navbar-dark bg-transparent">
+  <div class="d-flex justify-content-between w-100 align-items-baseline">
+  <div class="wrapper">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto ">
+
+    <%= user_signed_in %>
+    <%= user_not_signed_in %>
+
+      </ul>
+  </div>
+  </div>
+    <div class="text-center">
+      <h4 class="h2 text-white sm-h3 title-pr"> See all <%= title %> </h4>
+    </div>
+  <%= fa_icon 'search', class: 'text-white'%>
+  </div>
+</nav>

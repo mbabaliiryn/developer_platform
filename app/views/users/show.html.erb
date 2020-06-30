@@ -1,0 +1,46 @@
+<div class="container-fluid w-100 h-100vh bg-darkblue">
+
+
+  <div class="row">
+    <div class="col-12 col-md-6 mx-auto text-center">
+      <%= user_image(current_user) %>
+     
+      <h4 class="h1 text-white"> <%=  @user.name %> </h4>
+      <small class="text-white"> <%=  @user.profile.class %> </small>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-6 mx-auto text-center d-flex flex-column align-items-center">
+      <%= link_to edit_user_registration_path(current_user), class: 'text-white h3  sm-h3  p-3 sm-w-100 w-75 border-bottom' do %>
+        <%= fa_icon "cog" %> Account Settings
+      <% end %>
+
+      <%= link_to tasks_path, class: 'text-white h3   p-3 w-75 sm-h3  sm-w-100 border-bottom' do %>
+        <%= fa_icon "boxes" %> All my tasks
+      <% end %>
+
+      <%= link_to new_task_path, class: 'text-white h3   p-3 w-75 sm-h3 sm-w-100 border-bottom' do %>
+        <%= fa_icon 'dizzy' %> New task
+      <% end %>
+
+      <%= link_to externals_task_path, class: 'text-white h3   p-3 w-75 sm-w-100 sm-h3 border-bottom' do %>
+        <%= fa_icon "donate" %> All external tasks
+      <% end %>
+
+
+      <%= link_to groups_path, class: 'text-white h3   p-3 w-75 sm-h3 sm-w-100 border-bottom' do %>
+        <%= fa_icon "cubes" %> All groups of tasks
+      <% end %>
+
+      <%= link_to projects_path, class: 'text-white h3   p-3 w-75 sm-h3 sm-w-100 border-bottom' do %>
+        <%= fa_icon "dice", type: :solid %> All projects
+      <% end %>
+
+
+      <%= manage_developer(current_user) %>
+    </div>
+  </div>
+
+</div>
+

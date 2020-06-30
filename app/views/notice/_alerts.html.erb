@@ -1,0 +1,48 @@
+<% User.all.each do |user| %>
+  <% next if user == current_user %>
+ <div class="media border">
+
+  <p id='normalChat'></p>
+  <%= user_image_small(user) %>
+    <div class="media-body">
+        <h5 class="mt-0 title font-weight-bold" id='notification'>
+          <%= user.name %> <span></span>
+          
+        </h5>
+        <div class="sub-title" id= 'notice-chat'>
+          <%# <%= messages_sent %>
+
+          
+        </div>
+
+        <%= form_with(scope: :notice, url: './notice_create', method: :post, id: 'chat-form') do |f| %>
+              <div class="form-group">
+                 <%= f.label :body %>
+                 <%= f.text_field :body, class: 'form-control' %>
+               </div>
+
+              <%= hidden_field_tag :chat_id, Chat.last.id %>
+
+
+              <%= f.hidden_field :recipient_id, :value => user.id %>
+          <% end %>
+      </div>
+</div>
+<% end %>
+
+
+<%# 
+<li class="nav-item dropdown active">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Notifications
+        </a>
+  <div class="dropdown-menu" id='notice-container' aria-labelledby="dropdownMenuButton">
+    <% current_user.alert_received.each do |alert| %>
+      <%# <%= link_to alert.body, '#', class: 'dropdown-item'%> 
+    
+  <%# </div>
+</li> %>
+
+
+
+ 

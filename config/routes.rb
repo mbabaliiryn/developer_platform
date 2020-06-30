@@ -1,3 +1,16 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'projects/new'
+  get 'projects/index'
+  get 'projects/create'
+
+  devise_for :users, controllers: { registrations: 'users/registrations' }
+  resources :users, only: [:show]
+  resources :tasks, only: %i[index new create destroy]
+  resources :groups, only: %i[index new create show destroy]
+  resources :projects, only: %i[index new create show destroy]
+  root 'users#profile'
+  get 'externals_task', to: 'tasks#externals'
+
 end
